@@ -67,7 +67,7 @@ type FromDockerfile struct {
 	Dockerfile     string    // the path from the context to the Dockerfile for the image, defaults to "Dockerfile"
 }
 
-// ContainerRequest represents the parameters used to get a running container
+// ContainerRequest represents the parameters used to get a running container.
 type ContainerRequest struct {
 	FromDockerfile
 	Image           string
@@ -86,6 +86,7 @@ type ContainerRequest struct {
 	Privileged      bool                // for starting privileged container
 	Networks        []string            // for specifying network names
 	NetworkAliases  map[string][]string // for specifying network aliases
+	ExtraHosts      []string            // list of extra hosts to set up in the container, see https://docs.docker.com/engine/reference/run/#managing-etchosts
 	SkipReaper      bool                // indicates whether we skip setting up a reaper for this
 	ReaperImage     string              // alternative reaper image
 	AutoRemove      bool                // if set to true, the container will be removed from the host when stopped

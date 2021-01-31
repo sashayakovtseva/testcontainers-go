@@ -486,7 +486,7 @@ func (p *DockerProvider) BuildImage(ctx context.Context, img ImageBuildInfo) (st
 	return repoTag, nil
 }
 
-// CreateContainer fulfills a request for a container without starting it
+// CreateContainer fulfills a request for a container without starting it.
 func (p *DockerProvider) CreateContainer(ctx context.Context, req ContainerRequest) (Container, error) {
 	var err error
 
@@ -619,6 +619,7 @@ func (p *DockerProvider) CreateContainer(ctx context.Context, req ContainerReque
 		AutoRemove:   req.AutoRemove,
 		Privileged:   req.Privileged,
 		NetworkMode:  req.NetworkMode,
+		ExtraHosts:   req.ExtraHosts,
 	}
 
 	endpointConfigs := map[string]*network.EndpointSettings{}
